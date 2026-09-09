@@ -21,7 +21,7 @@ public class WeatherService(IWeatherApiClient apiClient)
         var data = await apiClient.GetWeatherAsync(city);
         if (data is null) return $"No weather data available for {city}.";
 
-        return $"{data.City}: {data.TemperatureCelsius.ToString("F1", System.Globalization.CultureInfo.InvariantCulture)}°C, {data.Condition}";
+       return $"{data.City}: {data.TemperatureCelsius.ToString("F1", System.Globalization.CultureInfo.InvariantCulture)}F, {data.Condition}";
     }
 
     public async Task<WeatherData?> GetHottestForecastDayAsync(string city, int days)
